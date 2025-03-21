@@ -1,7 +1,8 @@
-from django.urls import path
-from .views import PessoasAPIView, PessoaAPIView
+from rest_framework import viewsets
+from .models import Pessoa
+from .serializers import PessoaSerializer
+# ViewSet para listar e criar várias atas
 
-urlpatterns = [
-    path('', PessoasAPIView.as_view(), name='pessoas'),  # Lista e cria
-    path('<int:pk>/', PessoaAPIView.as_view(), name='pessoa'),  # Detalha, atualiza e deleta
-]
+class PessoaViewSet(viewsets.ModelViewSet):
+    queryset = Pessoa.objects.all()
+    serializer_class = PessoaSerializer
