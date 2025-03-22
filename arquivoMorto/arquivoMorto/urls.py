@@ -13,7 +13,5 @@ router.register(r'atas', ata_views.AtaViewSet)
 
 # Definir as URLs no projeto central
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Acesso ao admin
-    path('api/v1/', include(router.urls)),  # Inclui todas as rotas registradas no roteador
-    path('auth/', include('rest_framework.urls')),  # URLs de autenticação do DRF
+    
 ]
