@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Ata(models.Model):
     SERIES = [
         ('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'),
@@ -36,3 +35,4 @@ class ArquivoPDF(models.Model):
 
     def __str__(self):
         return self.nome if self.nome else f'PDF {self.id}'
+
