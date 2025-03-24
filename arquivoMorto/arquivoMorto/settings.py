@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'ata',
     'pessoa',
+    'rest_framework_simplejwt',
+    'drf_spectacular'
 
 ]
 
@@ -127,8 +129,21 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    "DEFUALT_PERMISSION_CLASSE": [
-        "rest_framework.permissions.DjangoModelPermession",
-    ]
-
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API de arquivo morto',
+    'DESCRIPTION': 'Permissões e documentação',
+    'VERSION': '1.0.0',
+}
+
+
+

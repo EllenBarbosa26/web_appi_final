@@ -5,25 +5,25 @@ from .models import Endereco, Pessoa
 class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endereco
-        fields = '__all__'  # Inclui todos os campos do modelo
+        fields = '__all__' 
 
 # Serializer para o modelo Pessoa
 class PessoaSerializer(serializers.ModelSerializer):
-    endereco = EnderecoSerializer()  # Permite editar o endereço junto com a pessoa
+    endereco = EnderecoSerializer()  
 
     class Meta:
         model = Pessoa
         fields = ['id', 'nome', 'cpf', 'pdf', 'tipo_pessoa', 'endereco']  # Campos da pessoa e o endereço
 
     def create(self, validated_data):
-        # Criar uma pessoa e o endereço relacionado
-        endereco_data = validated_data.pop('endereco')  # Extrai os dados do endereço
-        pessoa = Pessoa.objects.create(**validated_data)  # Cria a pessoa
-        endereco = Endereco.objects.create(pessoa=pessoa, **endereco_data)  # Cria o endereço e associa à pessoa
+        endereco_data = validated_data.pop('endereco')
+        endereco = Endereco.objects.create(**endereco_data)
+        pessoa = Pessoa.objects.create(endereco=endereco, **validated_data)
         return pessoa
 
+
     def update(self, instance, validated_data):
-        # Atualiza a pessoa e o endereço, se necessário
+        # Atualiza a pessoa e o endereço 
         endereco_data = validated_data.pop('endereco', None)
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
