@@ -1,3 +1,5 @@
+
+
 from rest_framework import serializers
 from .models import Ata
 
@@ -5,4 +7,4 @@ from .models import Ata
 class AtaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ata
-        fields = ['id', 'ano', 'serie', 'turma', 'pdf']  # Campos que você deseja expor na API
+        fields = ['id', 'ano', 'serie', 'turma', 'pdf']  
