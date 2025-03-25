@@ -13,10 +13,10 @@ class Endereco(models.Model):
         return f"{self.rua}, {self.num} - {self.bairro}, {self.cidade}/{self.estado}"
 
     class Meta:
-        verbose_name = "Endereço"
-        verbose_name_plural = "Endereços"
-        ordering = ["cidade", "bairro", "rua"]  # Ordena primeiro por cidade, depois bairro e rua
-        db_table = "enderecos"  # Nome da tabela no banco de dados
+            verbose_name = "Endereço"
+            verbose_name_plural = "Endereços"
+            ordering = ["cidade", "bairro", "rua"]  # Ordena primeiro por cidade, depois bairro e rua
+            db_table = "enderecos"  # Nome da tabela no banco de dados
 
 
 class Pessoa(models.Model):
