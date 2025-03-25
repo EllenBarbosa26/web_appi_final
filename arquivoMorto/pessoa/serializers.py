@@ -13,8 +13,8 @@ class PessoaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pessoa
-        fields = ['id', 'nome', 'cpf', 'pdf', 'tipo_pessoa', 'endereco']  # Campos da pessoa e o endereço
-
+        fields = ['id', 'nome', 'cpf', 'pdf', 'tipo_pessoa', 'endereco']  
+        
     def create(self, validated_data):
         endereco_data = validated_data.pop('endereco')
         endereco = Endereco.objects.create(**endereco_data)

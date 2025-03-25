@@ -3,7 +3,7 @@ from django.db import models
 class Endereco(models.Model):
     rua = models.CharField(max_length=100)
     bairro = models.CharField(max_length=100)
-    num = models.IntegerField()  # Corrigido para IntegerField
+    num = models.IntegerField()  
     complemento = models.TextField(blank=True, null=True)  # Permitir campo opcional
     cidade = models.CharField(max_length=100)
     cep = models.CharField(max_length=9)  # Permitir formato 12345-678

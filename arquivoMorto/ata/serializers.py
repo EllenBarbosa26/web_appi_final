@@ -7,4 +7,4 @@ from .models import Ata
 class AtaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ata
-        fields = ['id', 'ano', 'serie', 'turma', 'pdf']  
+        fields = ['id', 'ano', 'serie', 'turma', 'pdf']  # Campos que serão serializados

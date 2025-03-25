@@ -18,7 +18,8 @@ class Ata(models.Model):
     class Meta:
         verbose_name = "Ata"
         verbose_name_plural = "Atas"
-        unique_together = ('ano', 'serie', 'turma')  # Garante que uma ata única seja cadastrada por série/turma no mesmo ano
+        # Garante que uma ata única seja cadastrada por série/turma no mesmo ano
+        unique_together = ('ano', 'serie', 'turma')  
 
     def __str__(self):
         return f"Ata {self.ano} - {self.serie} - {self.turma}"

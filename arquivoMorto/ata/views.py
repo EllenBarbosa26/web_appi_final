@@ -6,4 +6,4 @@ from rest_framework.permissions import IsAuthenticated
 class AtaViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Ata.objects.all()  # Retorna todas as instâncias de Ata
-    serializer_class = AtaSerializer  # Usando o serializador de Ata
+    serializer_class = AtaSerializer 
